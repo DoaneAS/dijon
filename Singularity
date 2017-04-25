@@ -36,9 +36,6 @@ UpdateURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/updates/$ba
 
 
 
-
-
-
 %post
     echo "Hello from inside the container"
     yum -y install vim-minimal
@@ -46,4 +43,5 @@ UpdateURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/updates/$ba
     yum -y groupinstall "Development Tools"
     chmod u+x /post.cent.sh
     ./post.cent.sh
+
 
