@@ -19,6 +19,12 @@ echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sour
 apt-get update
 apt-get install -y r-base-dev gdebi-core
 apt-get install -y time
+#apt-get install -y  software-properties-common
+#add-apt-repository ppa:webupd8team/java -y
+#apt-get update
+#echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+#apt-get install -y oracle-java8-installer
+#apt install oracle-java8-set-default
 apt-get clean
 
 # Install homebrew science, can't use root
@@ -45,27 +51,27 @@ echo "n" | /Software/rtg-core-non-commercial-3.6.2/rtg --version
 
 
 # install java 8
-apt-get install -y  software-properties-common && \
-add-apt-repository ppa:webupd8team/java -y && \
-apt-get update && \
-echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-apt-get install -y oracle-java8-installer && \
-apt-get clean
+#apt-get install -y  software-properties-common && \
+#add-apt-repository ppa:webupd8team/java -y && \
+#apt-get update && \
+#echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+#apt-get install -y oracle-java8-installer && \
+#apt-get clean
 
 #install picard
 
-git clone git@github.com:broadinstitute/picard.git
-cd picard/
- ./gradlew shadowJar
+#git clone git@github.com:broadinstitute/picard.git
+#cd picard/
+# ./gradlew shadowJar
 
-
+#
 cd /Software
-git clone https://github.com/slowkow/picardmetrics
-cd picardmetrics
+#git clone https://github.com/slowkow/picardmetrics
+#cd picardmetrics
 # Download and install the dependencies.
-make get-deps
+#make get-deps
 # Install picardmetrics and the man page.
-make install
+#make install
 
 sed -i 's|PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin|PATH="/Software/rtg-core-non-commercial-3.6.2:/Software/brew/bin:/Software/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"|' /environment
 
