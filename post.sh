@@ -42,6 +42,31 @@ wget --no-check-certificate https://github.com/RealTimeGenomics/rtg-core/release
 unzip rtg-core-non-commercial-3.6.2-linux-x64.zip
 echo "n" | /Software/rtg-core-non-commercial-3.6.2/rtg --version
 
+
+
+# install java 8
+apt-get install -y  software-properties-common && \
+add-apt-repository ppa:webupd8team/java -y && \
+apt-get update && \
+echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+apt-get install -y oracle-java8-installer && \
+apt-get clean
+
+#install picard
+
+git clone git@github.com:broadinstitute/picard.git
+cd picard/
+ ./gradlew shadowJar
+
+
+cd /Software
+git clone https://github.com/slowkow/picardmetrics
+cd picardmetrics
+# Download and install the dependencies.
+make get-deps
+# Install picardmetrics and the man page.
+make install
+
 sed -i 's|PATH=$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin|PATH="/Software/rtg-core-non-commercial-3.6.2:/Software/brew/bin:/Software/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"|' /environment
 
 /Software/anaconda3/bin/conda list | tail -n+3 | awk '{print $1, $2, "Anaconda"}' > /Software/.info
