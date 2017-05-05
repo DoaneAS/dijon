@@ -21,7 +21,8 @@ From: ubuntu:trusty
     else
         exec "$@"
     fi
-        
+
+
 %post
 
     chmod u+x /post.sh
