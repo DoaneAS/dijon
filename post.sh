@@ -41,8 +41,12 @@ bash Anaconda3-4.1.1-Linux-x86_64.sh -b -p /Software/anaconda3
 rm Anaconda3-4.1.1-Linux-x86_64.sh
 /Software/anaconda3/bin/conda update -y conda
 /Software/anaconda3/bin/conda update -y anaconda
+/Software/anaconda3/bin/conda config --add channels conda-forge
+/Software/anaconda3/bin/conda config --add channels defaults
+/Software/anaconda3/bin/conda config --add channels r
 /Software/anaconda3/bin/conda config --add channels bioconda
 /Software/anaconda3/bin/conda install -y --channel bioconda kallisto
+/Software/anaconda3/bin/conda install -y macs2 deeptools
 /Software/anaconda3/bin/conda clean -y --all
 wget --no-check-certificate https://github.com/RealTimeGenomics/rtg-core/releases/download/3.6.2/rtg-core-non-commercial-3.6.2-linux-x64.zip
 unzip rtg-core-non-commercial-3.6.2-linux-x64.zip
