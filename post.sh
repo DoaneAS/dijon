@@ -35,20 +35,20 @@ su -c '/Software/brew/bin/brew install bsdmainutils parallel util-linux' singula
 su -c '/Software/brew/bin/brew tap homebrew/science' singularity
 su -c '/Software/brew/bin/brew install art bwa samtools' singularity
 su -c 'rm -r $(/Software/brew/bin/brew --cache)' singularity
-su -c 'wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh' singularity
+su -c 'wget http://repo.continuum.io/archive/Anaconda2-4.3.1-Linux-x86_64.sh' singularity
 
-bash Anaconda3-4.1.1-Linux-x86_64.sh -b -p /Software/anaconda3
-rm Anaconda3-4.1.1-Linux-x86_64.sh
-/Software/anaconda3/bin/conda update -y conda
-/Software/anaconda3/bin/conda update -y anaconda
-/Software/anaconda3/bin/conda config --add channels conda-forge
-/Software/anaconda3/bin/conda config --add channels defaults
-/Software/anaconda3/bin/conda config --add channels r
-/Software/anaconda3/bin/conda config --add channels bioconda
-/Software/anaconda3/bin/conda install -y --channel bioconda kallisto
-/Software/anaconda3/bin/conda install -y macs2
-/Software/anaconda3/bin/conda install -y deeptools
-/Software/anaconda3/bin/conda clean -y --all
+bash Anaconda2-4.3.1-Linux-x86_64.sh -b -p /Software/anaconda3
+rm Anaconda2-4.3.1-Linux-x86_64.sh
+/Software/anaconda2/bin/conda update -y conda
+/Software/anaconda2/bin/conda update -y anaconda
+/Software/anaconda2/bin/conda config --add channels conda-forge
+/Software/anaconda2/bin/conda config --add channels defaults
+/Software/anaconda2/bin/conda config --add channels r
+/Software/anaconda2/bin/conda config --add channels bioconda
+/Software/anaconda2/bin/conda install -y --channel bioconda kallisto
+/Software/anaconda2/bin/conda install -y macs2
+/Software/anaconda2/bin/conda install -y deeptools
+/Software/anaconda2/bin/conda clean -y --all
 wget --no-check-certificate https://github.com/RealTimeGenomics/rtg-core/releases/download/3.6.2/rtg-core-non-commercial-3.6.2-linux-x64.zip
 unzip rtg-core-non-commercial-3.6.2-linux-x64.zip
 echo "n" | /Software/rtg-core-non-commercial-3.6.2/rtg --version
