@@ -19,6 +19,11 @@ echo "deb https://cloud.r-project.org/bin/linux/ubuntu trusty/" >> /etc/apt/sour
 apt-get update
 apt-get install -y r-base-dev gdebi-core
 apt-get install -y time
+# Install R, Python, misc. utilities
+apt-get install -y libopenblas-dev r-base-core libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin python-pip python-dev
+#apt-get clean
+#locale-gen en_US.UTF-8
+
 #apt-get install -y  software-properties-common
 #add-apt-repository ppa:webupd8team/java -y
 #apt-get update
@@ -53,8 +58,13 @@ wget --no-check-certificate https://github.com/RealTimeGenomics/rtg-core/release
 unzip rtg-core-non-commercial-3.6.2-linux-x64.zip
 echo "n" | /Software/rtg-core-non-commercial-3.6.2/rtg --version
 
-
-
+  # Install required R packages
+R --slave -e 'install.packages("devtools", repos="https://cloud.r-project.org/")'
+R --slave -e 'devtools::install_github("rstudio/tensorflow")'
+R --slave -e 'source("https://bioconductor.org/biocLite.R"); biocLite(); biocLite("BSgenome.Hsapiens.UCSC.hg19"); biocLite("BSgenome.Mmusculus.UCSC.mm9"); biocLite("BSgenome.Hsapiens.UCSC.hg19"); biocLite("BSgenome.Hsapiens.UCSC.hg38")'
+R --slave -e 'devtools::install_github("GreenleafLab/chromVAR")'
+R --slave -e 'install.packages("Cairo", repos="https://cloud.r-project.org/")'
+R --slave -e 'install.packages(c("hash", "digest", "data.table"))'
 # install java 8
 #apt-get install -y  software-properties-common && \
 #add-apt-repository ppa:webupd8team/java -y && \
