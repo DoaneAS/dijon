@@ -6,6 +6,12 @@ export LANGUAGE="en_US.UTF-8"
 echo 'LANGUAGE="en_US.UTF-8"' >> /etc/default/locale
 echo 'LC_ALL="en_US.UTF-8"' >> /etc/default/locale
 mkdir /share /local-scratch /Software /scratch
+mkdir /scratchLocal
+mkdir /pbtech_mounts
+mkdir /pbtech_mounts/softlib001
+mkdir /pbtech_mounts/oelab_store003
+mkdir /athena
+mkdir /cluster001
 mkdir -p /scratch/data
 mkdir -p /scratch/logs
 chmod -R 777 /scratch
