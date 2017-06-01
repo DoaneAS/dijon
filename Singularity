@@ -22,8 +22,14 @@ From: ubuntu:trusty
         exec "$@"
     fi
 
+%test
+      exec R --slave -e "library(tensorflow); \
+                     sess  <- tensorflow::tf\$Session(); \
+                     hello <- tensorflow::tf\$constant('Hello, TensorFlow!'); \
+                     sess\$run(hello)"
 
 %post
 
     chmod u+x /post.sh
     ./post.sh
+     R --slave -e 'devtools::install_github("rstudio/tensorflow")'
