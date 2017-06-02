@@ -26,7 +26,7 @@ apt-get update
 apt-get install -y r-base-dev gdebi-core
 apt-get install -y time
 # Install R, Python, misc. utilities
-apt-get install -y libopenblas-dev r-base-core libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev libcairo2-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin python-pip python-dev
+apt-get install -y libopenblas-dev r-base-core libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev libcairo2-dev wget vim git libssl-dev libcurl4-openssl-dev nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin python-pip python-dev
 #apt-get clean
 #locale-gen en_US.UTF-8
 
