@@ -33,3 +33,4 @@ From: ubuntu:trusty
     chmod u+x /post.sh
     ./post.sh
      R --slave -e 'devtools::install_github("rstudio/tensorflow")'
+     
